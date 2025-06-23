@@ -52,6 +52,29 @@ class Trie:
                 return False
             prev_node = curr_node
         return True
+    
+    def _search_any_char(self, word, curr_node, index):
+        if index == len(word):
+            return curr_node.leaf
+        char = word[index]
+        if char == ".":
+            for child in curr_node.children:
+                if child is not None:
+                    if self._search_any_char(word, child, index+1):
+                        return True
+            return False
+        else:
+            int_index = ord(char) - ord('a')
+            next_node = curr_node.children[int_index]
+            if next_node is None:
+                return False
+            return self._search_any_char(word, next_node, index+1)
+        
+    
+    def search_any_char(self, word):
+        # bed ded mad .ad
+        val = self._search_any_char(word, self.root, 0)
+        return val
 
     def print_trie(self, node=None, level=0):
         if node is None:
@@ -66,13 +89,8 @@ class Trie:
 
 
 trie = Trie()
-trie.insert("apple")
-trie.search("apple")
-trie.search("app")
-trie.startsWith("app")
-trie.insert("app")
-trie.insert("appetizer")
-trie.startsWith("appet")
-trie.search("app")
-
-trie.print_trie()
+trie.insert("bad")
+trie.insert("del")
+trie.insert("damp")
+trie.insert("mad")
+trie.search_any_char(".e.")
