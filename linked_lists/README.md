@@ -1,0 +1,1 @@
+/home/ayaanp/leetcode/linked_lists/e1.png
