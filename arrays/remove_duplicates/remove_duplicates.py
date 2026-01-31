@@ -9,6 +9,7 @@ class Solution:
 
         while i < len(nums):
             if nums[i] != nums[i-1]:
+                # Write the number near the start
                 nums[k] = nums[i]
                 k += 1
             i += 1
