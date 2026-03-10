@@ -48,4 +48,3 @@ three.right = seven
 
 sol = Solution()
 print(sol.levelOrder(one))
-
