@@ -11,6 +11,12 @@ def sol_1(nums):
     return True if last_index == 0 else False
 
 
+def sol_2(nums):
+    farthest = 0
 
-
-
+    for i in range(len(nums)):
+        if i > farthest:
+            return False
+        
+        farthest = max(farthest, i+nums[i])
+    return True
