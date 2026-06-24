@@ -20,3 +20,15 @@ def sol_2(nums):
         
         farthest = max(farthest, i+nums[i])
     return True
+
+
+def sol_3(nums):
+    # dp[i] = can I reach index i?
+    dp = [False] * len(nums)
+    dp[0] = True
+
+    for i in range(0, len(nums)):
+        if dp[i]:
+            for j in range(i+1, len(nums)):
+                if (i+nums[i]) >= j:
+                    dp[j] = True
