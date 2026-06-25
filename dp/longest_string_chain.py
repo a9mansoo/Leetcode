@@ -1,0 +1,23 @@
+words = ["xbc","pcxbcf","xb","cxbc","pcxbc"]
+
+dp = {}
+
+words.sort(key=len)
+
+longest = -1 
+
+for word in words:
+    dp[word] = 1
+
+    for i in range(len(word)):
+        predecessor = word[:i] + word[i+1:]
+
+        if predecessor in dp:
+            dp[word] = max(
+                dp[word],
+                dp[predecessor] + 1
+            )
+    
+    longest = max(longest, dp[word])
+
+print(longest)
