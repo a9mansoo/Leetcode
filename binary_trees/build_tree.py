@@ -22,7 +22,7 @@ def build_tree(arr):
         if i > n:
             break
         
-        if not arr[i]:
+        if arr[i] is None:
             i += 1
             continue
 
